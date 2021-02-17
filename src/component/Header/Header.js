@@ -15,6 +15,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+import { useSelector, useDispatch } from 'react-redux';
+import {SHOW_LOGIN} from '../../store/action/actionTypes';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -37,9 +40,13 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  menuButton: {
-    marginRight: 36,
+  title: {
+    flexGrow: 1,
   },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+
   hide: {
     display: 'none',
   },
@@ -77,15 +84,20 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-  },}));
+  },
+
+}));
 const Header = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [openLogin, setOpenLogin] = React.useState(false);
   const openMenu = Boolean(anchorEl);
   const [open, setOpen] = React.useState(false);
+
+  const myStateLogin = useSelector(state => state.login)
+  const dispatch = useDispatch();
+
 
 
   const handleDrawerOpen = () => {
@@ -106,7 +118,7 @@ const Header = (props) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    setOpenLogin(true);
+    dispatch({type: SHOW_LOGIN});
   };
 
   const drawer = (
@@ -152,6 +164,7 @@ const Header = (props) => {
   const menuRight = (
 
     <Menu
+
       id="menu-appbar"
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -192,6 +205,7 @@ const Header = (props) => {
             CRM
           </Typography>
           <IconButton
+                className={classes.menuButton}
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -202,6 +216,8 @@ const Header = (props) => {
           </IconButton>
           {menuRight}
         </Toolbar>
+
+
       </AppBar>
       {drawer}
     </div>

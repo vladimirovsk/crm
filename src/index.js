@@ -10,7 +10,6 @@ import rootReducers from './store/reducers/rootReducers';
 import thunk from  'redux-thunk';
 
 //TODO какой из composeEnhancers использовать?
-
 const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
