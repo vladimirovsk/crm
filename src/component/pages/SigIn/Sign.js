@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${backImg})`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -32,7 +32,9 @@ export default function SignInSide(props) {
   const classes = useStyles();
 
   React.useEffect(()=>{
-    setNewUser(selLogin.openLogin)
+     setNewUser(selLogin.openLogin)
+
+     return (()=>setNewUser(false))
   }, [selLogin.openLogin, selLogin.openSignUp])
 
 

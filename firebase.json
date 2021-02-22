@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "doc.webnit.pl",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+    
+  }
+}

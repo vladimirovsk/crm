@@ -8,6 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
 import rootReducers from './store/reducers/rootReducers';
 import thunk from  'redux-thunk';
+import { AuthProvider } from 'contexts/AuthContext';
 
 //TODO какой из composeEnhancers использовать?
 const composeEnhancers =
@@ -24,11 +25,17 @@ const composeEnhancers =
 const store = createStore(rootReducers, composeEnhancers(applyMiddleware(thunk)))
 
 const app =(
+
   <Provider store={store}>
+     <AuthProvider>
     <BrowserRouter>
+
       <App />
     </BrowserRouter>
+     </AuthProvider>
+    
   </Provider>
+
 )
 
 ReactDOM.render(

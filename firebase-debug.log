@@ -1,0 +1,152 @@
+[debug] [2021-02-22T10:21:47.277Z] ----------------------------------------------------------------------
+[debug] [2021-02-22T10:21:47.279Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2021-02-22T10:21:47.279Z] CLI Version:   9.4.0
+[debug] [2021-02-22T10:21:47.279Z] Platform:      darwin
+[debug] [2021-02-22T10:21:47.279Z] Node Version:  v12.19.0
+[debug] [2021-02-22T10:21:47.280Z] Time:          Mon Feb 22 2021 11:21:47 GMT+0100 (GMT+01:00)
+[debug] [2021-02-22T10:21:47.280Z] ----------------------------------------------------------------------
+[debug] [2021-02-22T10:21:47.281Z] 
+[debug] [2021-02-22T10:21:47.284Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-02-22T10:21:47.285Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/s.vladimirov/Project/React/crm
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using ng-crm-75a1f. 
+[debug] [2021-02-22T10:21:49.868Z] > refreshing access token with scopes: []
+[debug] [2021-02-22T10:21:49.868Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-02-22T10:21:50.090Z] <<< HTTP RESPONSE 200 {"date":"Mon, 22 Feb 2021 10:21:50 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:21:50.114Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ng-crm-75a1f [none]
+[debug] [2021-02-22T10:21:50.423Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ng-crm-75a1f 200
+[debug] [2021-02-22T10:21:50.423Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ng-crm-75a1f {"projectId":"ng-crm-75a1f","projectNumber":"87725660702","displayName":"okt-crm","name":"projects/ng-crm-75a1f","resources":{"hostingSite":"ng-crm-75a1f","realtimeDatabaseInstance":"ng-crm-75a1f"},"state":"ACTIVE"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] ✔  Wrote build/404.html 
+[debug] [2021-02-22T10:22:08.470Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2021-02-22T10:22:08.677Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2021-02-22T10:22:08.678Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"8.2.9","browserURL":"https://www.gstatic.com/firebasejs/8.2.9/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/8.2.9/firebase.tgz"},"live":{"version":"8.2","browserURL":"https://www.gstatic.com/firebasejs/live/8.2/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/8.2/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js","auth":"https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js","database":"https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js","firestore":"https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js","functions":"https://www.gstatic.com/firebasejs/8.2.9/firebase-functions.js","installations":"https://www.gstatic.com/firebasejs/8.2.9/firebase-installations.js","messaging":"https://www.gstatic.com/firebasejs/8.2.9/firebase-messaging.js","storage":"https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/8.2.9/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/8.2.9/firebase-remote-config.js","firestore.memory":"https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.memory.js"}}
+[info] i  Skipping write of build/index.html 
+[info] 
+[info] i  Detected a .git folder at /Users/s.vladimirov/Project/React/crm 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=616538666&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-02-22T10:22:15.713Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"266c3153a7df228623e6","redirect_uri":"http://localhost:9005","state":"616538666"}
+[debug] [2021-02-22T10:22:16.076Z] <<< HTTP RESPONSE 200 {"server":"GitHub.com","date":"Mon, 22 Feb 2021 10:22:16 GMT","content-type":"application/json; charset=utf-8","vary":"X-PJAX, Accept-Encoding, Accept, X-Requested-With","etag":"W/\"bdbb7faf4440efba34cacad2c95b00e5\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"1; mode=block","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com user-images.githubusercontent.com/ *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker-5029ae85.js gist.github.com/socket-worker-5029ae85.js","x-github-request-id":"5B3F:02D5:D20074:F41A5A:603385D7","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:22:16.086Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2021-02-22T10:22:16.560Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2021-02-22T10:22:16.560Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"vladimirovsk","id":11759631,"node_id":"MDQ6VXNlcjExNzU5NjMx","avatar_url":"https://avatars.githubusercontent.com/u/11759631?v=4","gravatar_id":"","url":"https://api.github.com/users/vladimirovsk","html_url":"https://github.com/vladimirovsk","followers_url":"https://api.github.com/users/vladimirovsk/followers","following_url":"https://api.github.com/users/vladimirovsk/following{/other_user}","gists_url":"https://api.github.com/users/vladimirovsk/gists{/gist_id}","starred_url":"https://api.github.com/users/vladimirovsk/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/vladimirovsk/subscriptions","organizations_url":"https://api.github.com/users/vladimirovsk/orgs","repos_url":"https://api.github.com/users/vladimirovsk/repos","events_url":"https://api.github.com/users/vladimirovsk/events{/privacy}","received_events_url":"https://api.github.com/users/vladimirovsk/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":13,"public_gists":0,"followers":0,"following":0,"created_at":"2015-04-01T18:54:35Z","updated_at":"2021-02-17T20:02:28Z","private_gists":2,"total_private_repos":0,"owned_private_repos":0,"disk_usage":181754,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as vladimirovsk 
+[info] 
+[debug] [2021-02-22T10:22:34.726Z] >>> [apiv2][query] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key type=owner
+[debug] [2021-02-22T10:22:35.062Z] <<< [apiv2][status] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key 404
+[debug] [2021-02-22T10:22:35.062Z] <<< [apiv2][body] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
+[debug] [2021-02-22T10:22:39.266Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2021-02-22T10:22:39.606Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2021-02-22T10:22:39.607Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest"}
+[debug] [2021-02-22T10:23:47.018Z] >>> [apiv2][query] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key type=owner
+[debug] [2021-02-22T10:23:47.477Z] <<< [apiv2][status] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key 200
+[debug] [2021-02-22T10:23:47.477Z] <<< [apiv2][body] GET https://api.github.com/repos/vladimirovsk/crm/actions/secrets/public-key {"key_id":"568250167242549743","key":"5BNdLXuEvRanwz50fRB/rEHhpZ0bcm4+MUa4pdKdtW0="}
+[debug] [2021-02-22T10:23:47.479Z] >>> [apiv2][query] GET https://api.github.com/repos/vladimirovsk/crm [none]
+[debug] [2021-02-22T10:23:47.809Z] <<< [apiv2][status] GET https://api.github.com/repos/vladimirovsk/crm 200
+[debug] [2021-02-22T10:23:47.809Z] <<< [apiv2][body] GET https://api.github.com/repos/vladimirovsk/crm {"id":341160628,"node_id":"MDEwOlJlcG9zaXRvcnkzNDExNjA2Mjg=","name":"crm","full_name":"vladimirovsk/crm","private":false,"owner":{"login":"vladimirovsk","id":11759631,"node_id":"MDQ6VXNlcjExNzU5NjMx","avatar_url":"https://avatars.githubusercontent.com/u/11759631?v=4","gravatar_id":"","url":"https://api.github.com/users/vladimirovsk","html_url":"https://github.com/vladimirovsk","followers_url":"https://api.github.com/users/vladimirovsk/followers","following_url":"https://api.github.com/users/vladimirovsk/following{/other_user}","gists_url":"https://api.github.com/users/vladimirovsk/gists{/gist_id}","starred_url":"https://api.github.com/users/vladimirovsk/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/vladimirovsk/subscriptions","organizations_url":"https://api.github.com/users/vladimirovsk/orgs","repos_url":"https://api.github.com/users/vladimirovsk/repos","events_url":"https://api.github.com/users/vladimirovsk/events{/privacy}","received_events_url":"https://api.github.com/users/vladimirovsk/received_events","type":"User","site_admin":false},"html_url":"https://github.com/vladimirovsk/crm","description":"online document register","fork":false,"url":"https://api.github.com/repos/vladimirovsk/crm","forks_url":"https://api.github.com/repos/vladimirovsk/crm/forks","keys_url":"https://api.github.com/repos/vladimirovsk/crm/keys{/key_id}","collaborators_url":"https://api.github.com/repos/vladimirovsk/crm/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/vladimirovsk/crm/teams","hooks_url":"https://api.github.com/repos/vladimirovsk/crm/hooks","issue_events_url":"https://api.github.com/repos/vladimirovsk/crm/issues/events{/number}","events_url":"https://api.github.com/repos/vladimirovsk/crm/events","assignees_url":"https://api.github.com/repos/vladimirovsk/crm/assignees{/user}","branches_url":"https://api.github.com/repos/vladimirovsk/crm/branches{/branch}","tags_url":"https://api.github.com/repos/vladimirovsk/crm/tags","blobs_url":"https://api.github.com/repos/vladimirovsk/crm/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/vladimirovsk/crm/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/vladimirovsk/crm/git/refs{/sha}","trees_url":"https://api.github.com/repos/vladimirovsk/crm/git/trees{/sha}","statuses_url":"https://api.github.com/repos/vladimirovsk/crm/statuses/{sha}","languages_url":"https://api.github.com/repos/vladimirovsk/crm/languages","stargazers_url":"https://api.github.com/repos/vladimirovsk/crm/stargazers","contributors_url":"https://api.github.com/repos/vladimirovsk/crm/contributors","subscribers_url":"https://api.github.com/repos/vladimirovsk/crm/subscribers","subscription_url":"https://api.github.com/repos/vladimirovsk/crm/subscription","commits_url":"https://api.github.com/repos/vladimirovsk/crm/commits{/sha}","git_commits_url":"https://api.github.com/repos/vladimirovsk/crm/git/commits{/sha}","comments_url":"https://api.github.com/repos/vladimirovsk/crm/comments{/number}","issue_comment_url":"https://api.github.com/repos/vladimirovsk/crm/issues/comments{/number}","contents_url":"https://api.github.com/repos/vladimirovsk/crm/contents/{+path}","compare_url":"https://api.github.com/repos/vladimirovsk/crm/compare/{base}...{head}","merges_url":"https://api.github.com/repos/vladimirovsk/crm/merges","archive_url":"https://api.github.com/repos/vladimirovsk/crm/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/vladimirovsk/crm/downloads","issues_url":"https://api.github.com/repos/vladimirovsk/crm/issues{/number}","pulls_url":"https://api.github.com/repos/vladimirovsk/crm/pulls{/number}","milestones_url":"https://api.github.com/repos/vladimirovsk/crm/milestones{/number}","notifications_url":"https://api.github.com/repos/vladimirovsk/crm/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/vladimirovsk/crm/labels{/name}","releases_url":"https://api.github.com/repos/vladimirovsk/crm/releases{/id}","deployments_url":"https://api.github.com/repos/vladimirovsk/crm/deployments","created_at":"2021-02-22T10:23:33Z","updated_at":"2021-02-22T10:23:33Z","pushed_at":"2021-02-22T10:23:34Z","git_url":"git://github.com/vladimirovsk/crm.git","ssh_url":"git@github.com:vladimirovsk/crm.git","clone_url":"https://github.com/vladimirovsk/crm.git","svn_url":"https://github.com/vladimirovsk/crm","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":0,"license":null,"forks":0,"open_issues":0,"watchers":0,"default_branch":"main","permissions":{"admin":true,"push":true,"pull":true},"temp_clone_token":"","allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"delete_branch_on_merge":false,"network_count":0,"subscribers_count":1}
+[debug] [2021-02-22T10:23:47.812Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-02-22T10:23:47.812Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-02-22T10:23:48.045Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 22 Feb 2021 10:23:48 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:23:48.062Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/ng-crm-75a1f/serviceAccounts  
+ {"accountId":"github-action-341160628","serviceAccount":{"displayName":"GitHub Actions (vladimirovsk/crm)","description":"A service account with permission to deploy to Firebase Hosting for the GitHub repository vladimirovsk/crm"}}
+[debug] [2021-02-22T10:23:49.386Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 22 Feb 2021 10:23:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:23:49.388Z] >>> HTTP REQUEST GET https://iam.googleapis.com/v1/projects/ng-crm-75a1f/serviceAccounts/github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com  
+ 
+[debug] [2021-02-22T10:23:49.389Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ng-crm-75a1f:getIamPolicy  
+ 
+[debug] [2021-02-22T10:23:50.404Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 22 Feb 2021 10:23:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:23:50.454Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 22 Feb 2021 10:23:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=817","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:23:50.458Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ng-crm-75a1f:setIamPolicy  
+ {"policy":{"version":1,"etag":"BwWz13bRrsE=","bindings":[{"role":"roles/cloudfunctions.serviceAgent","members":["serviceAccount:service-87725660702@gcf-admin-robot.iam.gserviceaccount.com"]},{"role":"roles/editor","members":["serviceAccount:87725660702@cloudservices.gserviceaccount.com","serviceAccount:firebase-adminsdk-bzh6t@ng-crm-75a1f.iam.gserviceaccount.com","serviceAccount:ng-crm-75a1f@appspot.gserviceaccount.com"]},{"role":"roles/firebase.managementServiceAgent","members":["serviceAccount:firebase-service-account@firebase-sa-management.iam.gserviceaccount.com"]},{"role":"roles/firebase.sdkAdminServiceAgent","members":["serviceAccount:firebase-adminsdk-w9fe3@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/firebasedatabase.admin","members":["serviceAccount:firebase-adminsdk-w9fe3@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/firebaserules.system","members":["serviceAccount:service-87725660702@firebase-rules.iam.gserviceaccount.com"]},{"role":"roles/iam.serviceAccountTokenCreator","members":["serviceAccount:firebase-adminsdk-w9fe3@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/owner","members":["user:vladimirovsk@gmail.com"]},{"role":"roles/firebaseauth.admin","members":["serviceAccount:github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/serviceusage.apiKeysViewer","members":["serviceAccount:github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/firebasehosting.admin","members":["serviceAccount:github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com"]},{"role":"roles/run.viewer","members":["serviceAccount:github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com"]}]},"updateMask":"bindings"}
+[debug] [2021-02-22T10:23:51.925Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 22 Feb 2021 10:23:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1298","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:23:51.926Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/ng-crm-75a1f/serviceAccounts/github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com/keys  
+ {"keyAlgorithm":"KEY_ALG_UNSPECIFIED","privateKeyType":"TYPE_GOOGLE_CREDENTIALS_FILE"}
+[debug] [2021-02-22T10:24:07.795Z] <<< HTTP RESPONSE 503 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Mon, 22 Feb 2021 10:24:07 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-02-22T10:24:07.795Z] <<< HTTP RESPONSE BODY {"error":{"code":503,"message":"The service is currently unavailable.","status":"UNAVAILABLE"}}
+[error] 
+[error] Error: HTTP Error: 503, The service is currently unavailable.
+[debug] [2021-02-22T10:24:08.046Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 503,
+      "message": "The service is currently unavailable.",
+      "status": "UNAVAILABLE"
+    }
+  },
+  "response": {
+    "statusCode": 503,
+    "body": {
+      "error": {
+        "code": 503,
+        "message": "The service is currently unavailable.",
+        "status": "UNAVAILABLE"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Mon, 22 Feb 2021 10:24:07 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "iam.googleapis.com",
+        "port": 443,
+        "hostname": "iam.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1/projects/ng-crm-75a1f/serviceAccounts/github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com/keys",
+        "path": "/v1/projects/ng-crm-75a1f/serviceAccounts/github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com/keys",
+        "href": "https://iam.googleapis.com/v1/projects/ng-crm-75a1f/serviceAccounts/github-action-341160628@ng-crm-75a1f.iam.gserviceaccount.com/keys"
+      },
+      "method": "POST"
+    }
+  }
+}

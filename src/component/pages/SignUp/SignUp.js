@@ -1,5 +1,7 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import {Avatar} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -13,6 +15,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {useSelector, useDispatch } from 'react-redux';
+import {useHistory} from "react-router-dom";
+
+import {useAuth} from '../../../contexts/AuthContext';
+import AlertContext from 'contexts/alert/alertContext'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,9 +45,42 @@ const  SignUp =(props) => {
   const classes = useStyles();
   const dispatch = useDispatch()
   const selLogin = useSelector((state)=>state.login)
+  // const emailRef = React.useRef();
+  // const passwordRef = React.useRef();
+  const [error, setError] = React.useState();
+  const [loading, setLoading] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const { signup, currentUser } = useAuth();
+  const history = useHistory();
+  const {show} = React.useContext(AlertContext);
+
+  const errorRef = React.useRef(error);
 
   const handleOpenLogin = () =>{
     dispatch({type: 'OPEN_LOGIN'})
+  }
+
+  async function handleSubmit(e){
+    
+    //console.log("submit", email, password);
+    //if (passwordRef.current.value !==)
+    e.preventDefault();
+    try{
+      setError('');
+      setLoading(true);
+      await signup( email, password)
+      dispatch({type: 'OPEN_LOGIN'})
+
+    } catch (e) {
+
+      setError((prevError)=>{return prevError+"1"})
+      errorRef.current = 'Failed to create an account, '+e.message;
+      setError(errorRef.current);
+      show(errorRef.current, "Error", 5000)
+    }
+    setLoading(false)
   }
 
   return (
@@ -54,9 +93,11 @@ const  SignUp =(props) => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
+          {currentUser && currentUser.email}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
+              {/* FirstName */}
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -69,6 +110,7 @@ const  SignUp =(props) => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
+              {/* LastName */}
               <TextField
                 variant="outlined"
                 required
@@ -80,6 +122,7 @@ const  SignUp =(props) => {
               />
             </Grid>
             <Grid item xs={12}>
+            {/* Email */}
               <TextField
                 variant="outlined"
                 required
@@ -88,13 +131,18 @@ const  SignUp =(props) => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value = {email}
+                onChange = {e=>setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
+              {/* Password */}
               <TextField
                 variant="outlined"
                 required
                 fullWidth
+                value = {password}
+                onChange = {e=>setPassword(e.target.value)}
                 name="password"
                 label="Password"
                 type="password"
@@ -110,13 +158,16 @@ const  SignUp =(props) => {
             </Grid>
           </Grid>
           <Button
+            disabled={loading}
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+           
           >
-            Sign Up
+            {"Sign Up"}
+            {loading && <CircularProgress disableShrink size={"1rem"} className={classes.buttonProgress}/>}
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
@@ -126,7 +177,9 @@ const  SignUp =(props) => {
             </Grid>
           </Grid>
         </form>
+
       </div>
+      {/* {error && <Alert variant="outlined"  severity="error">{error}</Alert>} */}
     </Container>
   );
 }

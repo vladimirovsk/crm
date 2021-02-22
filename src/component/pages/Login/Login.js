@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,9 +11,15 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import Copyright from '../../Copyright/Copyright'
+import Copyright from '../../Copyright/Copyright';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import {useHistory} from 'react-router-dom';
+import AlertContext from 'contexts/alert/alertContext'
 
 import {useSelector, useDispatch} from 'react-redux';
+import {useAuth} from '../../../contexts/AuthContext';
+
+//const clientId = '87725660702-b1fjhbt1fo8ki5isi2ebbbietgjkjond.apps.googleusercontent.com'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,13 +47,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 const Login = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch()
-  const selLogin = useSelector((state)=>state.login)
+  const selLogin = useSelector((state)=>state.login);
+  const {login, currentUser} = useAuth();
+  const [error, setError] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const history = useHistory();
+  const {show} = useContext(AlertContext);
+  
+  //console.log(selLogin)
+  async function handleSubmit(e){
 
-  console.log(selLogin)
+    console.log("submit", email, password);
+    //if (passwordRef.current.value !==)
+    e.preventDefault();
+
+    try{
+      setError('');
+      setLoading(true);
+      await login( email, password);
+      history.push('/');
+    } catch (e) {
+      setError('Invalid Login/Email or Password, '+e.message);
+      show(e.message, "Error", 5000)
+    }
+    setLoading(false)
+  }
+
+
+  // React.useEffect(()=>{
+  //   if (error){
+  //   show(error, "error", 5000)
+  //   }
+  //   return ()=>setError('')
+  // },[error])
 
   const handleCloseLogin = () => {
       dispatch({type: 'OPEN_SIGNUP'});
@@ -62,7 +99,8 @@ const Login = (props) => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
+            {currentUser&& currentUser.email}
             <TextField
               variant="outlined"
               margin="normal"
@@ -73,6 +111,8 @@ const Login = (props) => {
               name="email"
               autoComplete="email"
               autoFocus
+              value = {email}
+              onChange = {e=>setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -84,12 +124,15 @@ const Login = (props) => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value = {password}
+              onChange = {e=>setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
+              disabled={loading}
               type="submit"
               fullWidth
               variant="contained"
@@ -97,6 +140,7 @@ const Login = (props) => {
               className={classes.submit}
             >
               Sign In
+              {loading && <CircularProgress disableShrink size={"1rem"} className={classes.buttonProgress}/>}
             </Button>
             <Grid container>
               <Grid item xs>

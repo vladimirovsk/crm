@@ -17,6 +17,8 @@ import MailIcon from '@material-ui/icons/Mail';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {SHOW_LOGIN} from '../../store/action/actionTypes';
+import {useAuth} from 'contexts/AuthContext';
+import {useHistory} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -97,7 +99,9 @@ const Header = (props) => {
 
   const myStateLogin = useSelector(state => state.login)
   const dispatch = useDispatch();
-
+  const { logout, currentUser } = useAuth();
+  const [error, setError] = React.useState();
+  const history = useHistory();
 
 
   const handleDrawerOpen = () => {
@@ -118,8 +122,19 @@ const Header = (props) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    dispatch({type: SHOW_LOGIN});
+    //dispatch({type: SHOW_LOGIN});
   };
+
+   async function handleLogout() {
+     setError("");
+     try{
+     await logout();
+     history.push('/sign');
+     } catch (e) {
+       setError(e.message)
+     }
+
+  }
 
   const drawer = (
     <Drawer
@@ -142,7 +157,7 @@ const Header = (props) => {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Inbox', 'Outbox', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
@@ -179,7 +194,8 @@ const Header = (props) => {
       open={openMenu}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose} component={NavLink} to='/login'>Login</MenuItem>
+      <MenuItem onClick={handleClose, handleLogout} component={NavLink} to='/'>Logout</MenuItem>
+      <Divider />
       <MenuItem onClick={handleClose} component={NavLink} to='/profile'>My account</MenuItem>
     </Menu>
   )
@@ -202,7 +218,7 @@ const Header = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            CRM
+            {currentUser.email}
           </Typography>
           <IconButton
                 className={classes.menuButton}
