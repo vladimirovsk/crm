@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const  SignUp =(props) => {
+const  Forgot =(props) => {
   const classes = useStyles();
   const dispatch = useDispatch()
   const selLogin = useSelector((state)=>state.login)
@@ -52,7 +52,7 @@ const  SignUp =(props) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const { signup, currentUser } = useAuth();
+  const { resetPassword, currentUser } = useAuth();
   const history = useHistory();
   const {show} = React.useContext(AlertContext);
 
@@ -70,13 +70,13 @@ const  SignUp =(props) => {
     try{
       setError('');
       setLoading(true);
-      await signup( email, password)
+      await resetPassword(email)
+      show('Check your inbox for futher function', 'success', 5000)
+      dispatch({type: 'CLOSE_FOREG'})
       dispatch({type: 'OPEN_LOGIN'})
-
     } catch (e) {
-
       setError((prevError)=>{return prevError+"1"})
-      errorRef.current = 'Failed to create an account, '+e.message;
+      errorRef.current = 'Failed to forgot password, '+e.message;
       setError(errorRef.current);
       show(errorRef.current, "error", 5000)
     }
@@ -91,36 +91,11 @@ const  SignUp =(props) => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Forgot password
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           {currentUser && currentUser.email}
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              {/* FirstName */}
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              {/* LastName */}
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
             <Grid item xs={12}>
             {/* Email */}
               <TextField
@@ -135,27 +110,6 @@ const  SignUp =(props) => {
                 onChange = {e=>setEmail(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12}>
-              {/* Password */}
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                value = {password}
-                onChange = {e=>setPassword(e.target.value)}
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
           </Grid>
           <Button
             disabled={loading}
@@ -164,9 +118,8 @@ const  SignUp =(props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-           
           >
-            {"Sign Up"}
+            {"Reset password"}
             {loading && <CircularProgress disableShrink size={"1rem"} className={classes.buttonProgress}/>}
           </Button>
           <Grid container justify="flex-end">
@@ -177,11 +130,9 @@ const  SignUp =(props) => {
             </Grid>
           </Grid>
         </form>
-
       </div>
-      {/* {error && <Alert variant="outlined"  severity="error">{error}</Alert>} */}
     </Container>
   );
 }
 
-export default SignUp;
+export default Forgot;

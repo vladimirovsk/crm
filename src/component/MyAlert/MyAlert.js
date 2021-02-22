@@ -66,7 +66,7 @@ export default function MyAlert () {
           variant="filled" 
           //variant="outlined"
           severity={alert.type} >
-            <AlertTitle>{alert.type}</AlertTitle>  
+            <AlertTitle style={{textTransform: 'uppercase'}}>{alert.type}</AlertTitle>  
             {alert.text}
           </Alert>
       </Snackbar> 

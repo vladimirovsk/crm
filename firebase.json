@@ -1,12 +1,15 @@
 {
   "hosting": {
-    "site": "doc.webnit.pl",
+    "rewrites": [ {
+      "source": "**/!(*.css|*.js|*.map|*.jpg|*.gif|*.png|*.php)",
+      "destination": "/index.html"
+    } ],
+
     "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
-    
   }
 }

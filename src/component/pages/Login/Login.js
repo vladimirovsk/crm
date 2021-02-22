@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../../Copyright/Copyright';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {useHistory} from 'react-router-dom';
+//import {useHistory} from 'react-router-dom';
 import AlertContext from 'contexts/alert/alertContext'
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -56,29 +56,26 @@ const Login = (props) => {
   const [password, setPassword] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [loading, setLoading] = React.useState(false);
-  const history = useHistory();
+  //const history = useHistory();
   const {show} = useContext(AlertContext);
   
   //console.log(selLogin)
   async function handleSubmit(e){
-
-    console.log("submit", email, password);
+    //console.log("submit", email, password);
     //if (passwordRef.current.value !==)
     e.preventDefault();
-
     try{
       setError('');
       setLoading(true);
       await login( email, password);
-      history.push('/');
+      setLoading(false)
+      //history.push('/');
     } catch (e) {
       setError('Invalid Login/Email or Password, '+e.message);
-      show(e.message, "Error", 5000)
+      show(e.message, "error", 5000)
     }
-    setLoading(false)
+    
   }
-
-
   // React.useEffect(()=>{
   //   if (error){
   //   show(error, "error", 5000)
@@ -90,6 +87,9 @@ const Login = (props) => {
       dispatch({type: 'OPEN_SIGNUP'});
   }
 
+  const handleOpenForeg = () => {
+    dispatch({type: 'OPEN_FOREG'});
+}
   return(
     <React.Fragment>
       <div className={classes.paper}>
@@ -144,7 +144,7 @@ const Login = (props) => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" onClick={handleOpenForeg}>
                   Forgot password?
                 </Link>
               </Grid>

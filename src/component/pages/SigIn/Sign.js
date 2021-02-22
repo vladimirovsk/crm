@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import backImg from '../../../img/backnew.png';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
+import Forgot from '../Forgot/Forgot';
 import {useSelector} from 'react-redux';
 import Copyright from '../../Copyright/Copyright'
 
@@ -30,12 +31,22 @@ export default function SignInSide(props) {
   const selLogin =useSelector((state)=>state.login);
   const [newUser, setNewUser] = React.useState(false);
   const classes = useStyles();
-
   React.useEffect(()=>{
-     setNewUser(selLogin.openLogin)
-
-     return (()=>setNewUser(false))
-  }, [selLogin.openLogin, selLogin.openSignUp])
+    //setNewUser(selLogin.openLogin)
+    if (selLogin.openLogin) {
+      setNewUser(<Login />)
+    }else
+    if (selLogin.openSignUp) {
+      setNewUser(<SignUp />)
+    }else if (selLogin.openForeg) {
+        setNewUser(<Forgot />)
+    }
+    else {
+      setNewUser(<Login />)
+    }
+      //console.log(selLogin)
+     return (()=>setNewUser( setNewUser(<Login />)))
+    }, [selLogin.openLogin, selLogin.openSignUp, selLogin.openForeg])
 
 
   //const handle
@@ -59,7 +70,8 @@ export default function SignInSide(props) {
       </Grid>
 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
-        {newUser ?<Login />:<SignUp />}
+        {/* {newUser ?<Login />:<SignUp />} */}
+        {newUser}
       </Grid>
     </Grid>
 
